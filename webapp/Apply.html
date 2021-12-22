@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수의 호출</title>
+<script type="text/javascript">
+
+//자바에서 함수라 함은 객체를 의미한다. 
+//객체 - 속성(값) 
+//속성에 함수가 들어있다면 그 속성은 메소드라고 한다
+
+function sum(arg1,arg2) {
+	return arg1 + arg2;
+}
+
+sum(1,2);	//3
+sum.apply(null, [1,2])	//3			//apply는 sum이라는 함수에 담겨있는 메소드!!
+
+//apply의 첫번째 인자를 null이 아닌 다른것을 사용할때 => 
+o1 = {val1:1, val2:2, val3:3}
+o2 = {v1:10, v2:50, v3:100, v4:25}
+function sum(){
+	//var this = o1;	이 함수의 this값을 지정해준다.
+    var _sum = 0;
+    for(name in this){
+        _sum += this[name];
+    }
+    return _sum;
+}
+//sum.apply : sum함수호출,   apply(o1) ==> sum함수내부에   var this = o1;   이 코드가 들어갔다고 생각
+alert(sum.apply(o1)) // 6
+alert(sum.apply(o2)) // 185
+
+
+//구글링
+/*
+func.apply([thisobj , [argArray] ]);
+
+func : 가져다쓸 메소드
+thisobj : 현재 객체로 사용될 객체 (func에 대한 호출에 제공된 this값)
+argArray : 함수에 전달될 인수 집합 [인자들을 배열로 만들어서 전달한다]
+*/
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
