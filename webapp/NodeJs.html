@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+node.circle.js(로드될 대상) : 읽음을 당하는쪽(호출대상)
+*/
+
+var PI = Math.PI;
+
+exports.area = function (r) {
+	return PI * r * r;
+};
+
+
+exports.circumference = function (r) {
+	return 2 * PI * r;
+};
+
+
+</script>
+</head>
+<body>
+<script type="text/javascript">
+//node.demo.js(로드의 주체) : 파일을 읽어오는쪽(호출하는쪽)
+
+//require : Node에서 제공하는함수로 node.circle.js를 모듈로하여 이것을 읽어온다.
+var circle = require('./node.circle.js');
+console.log('The area of a circle of radius 4 is' + circle.area(4));	
+//circle.area(4) => exports.area를 호출
+
+
+
+</script>
+</body>
+</html>

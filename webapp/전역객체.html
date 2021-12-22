@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+전역객체 : 모든객체는 이 전역객체의 프로퍼티다
+*/
+
+function func() {
+	alert('Hello?');
+}
+func();		//생략해도 명시적으로는 앞에 전역객체가 쓰임(func는 전역객체의 프로퍼티이다)
+window.func();	//window : 객체(전역객체 : 생략가능),  func : 속성(함수) == 메소드 (window라는 객체의 메소드)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

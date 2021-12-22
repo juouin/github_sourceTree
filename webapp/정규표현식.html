@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//replace : 지정한 패턴대로 치환한다
+var str = "coding everybody";
+var pattern = /(\w+)\s(\w+)/;	//정규표현식
+
+var result = str.replace(pattern, "$2, $1");	//pattern에 해당하는 값을 찾아서, 뒤에있는 문자열로 치환
+												//$1 : pattern의 첫번째 그룹을 의미
+												//$2 : pattern의 두번째 그룹을 의미
+												//이처럼 그룹을 지정해서 사용하는것을 '캡쳐'라고 한다
+												
+document.write(result + "\n");					//everybody, coding
+
+
+//--------------------------------------------------------------------------------------------
+
+var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+var content = '생활코딩 : http://opentutorials.org/course/1 입니다. 네이버 : http://naver.com 입니다. ';
+
+
+//CONTENT에서 urlPattern을 찾으면(주소형식), 그 형식을 <a>태그로 감싸서 리턴해준다 
+var aa = content.replace(urlPattern, function(url){	//url : 정규식으로 찾아낸문자
+    return '<a href="'+url+'">'+url+'</a>';
+});
+document.write(aa);
+
+
+/* 
+replace( 정규식 , 새로운 부분문자   )
+
+정규식에 일치하는 부분 문자열을 
+새로운 부분문자로 치환할수있다. 
+
+*/
+
+
+</script>
+</body>
+</html>

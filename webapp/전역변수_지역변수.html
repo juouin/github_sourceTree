@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//scope : 유효범위
+var vscope = 'global';		//함수기준 전역변수 : 모든곳에서 사용가능
+function fscope() {
+	var vscope = 'local';	//함수기준 지역변수 : 해당지역에서만 접근가능	
+	vscope = 'local'; 		//이미 지역변수로 초기화되었으므로 재선언해도 지역변수를 의미함
+}
+fscope();
+alert(vscope);
+
+// 유효범위의 필요성 -------------------------------------------------------------------------------------------
+
+function a (){
+    var i = 0; //결과 01234
+    //i=0; // 결과 : 무한반복 (전역변수 i를 0으로 바꾸어준다)
+}
+for(var i = 0; i < 5; i++){	//i : 전역변수
+    a();
+    document.write(i);
+}
+
+// 전역변수의 사용 ------------------------------------------------------------------------------------------------
+
+var MYAPP = {}		//객체
+MYAPP.calculator = {
+    'left' : null,
+    'right' : null
+}
+MYAPP.coordinate = {
+    'left' : null,
+    'right' : null
+}
+ 
+MYAPP.calculator.left = 10;			//key1.key2.key3 = MYAPP[key3]
+MYAPP.calculator.right = 20;
+function sum(){
+    return MYAPP.calculator.left + MYAPP.calculator.right;
+}
+document.write(sum());		//30
+console.log(MYAPP);
+
+
+//익명함수 : 생성한함수를 호출없이 그자리에서 실행한다.----------------------------------------------------------------
+function name() {
+	
+}
+//함수가 이렇게 있다면 {}끝에 ()를 써주고 함수전체를 ()로 감싸준다.... => 사실 {}끝에 ()만 붙여줘도 되긴함..
+(function name() {
+	document.write("익명함수실행");
+}())
+
+
+//유효범위의 대상 --------------------------------------------------------------------------------------------
+
+/*
+ 자바스크립트는 '함수'에 대한 유효범위만을 제공한다.  
+ 많은 언어들이 블록({})에 대한 유효범위를 제공하는것과 다른점이다
+ 
+ <자바스크립트의경우만>
+ 보통 함수의 중괄호{} 안에서 선언된 변수는 지역변수이다
+ 하지만 for,if문의 경우 그 안에서 선언된 변수는 전역변수로 취급된다
+*/
+
+if (true) {
+	var cc = 1123;	//전역변수취급
+}
+
+for (var i = 0; i < 5; i++) {
+	var name = 'coding everybody';	//for,if문의 중괄호안에서 선언된 변수는 전역변수취급을 받는다
+}
+alert(name + " " + cc);
+//위의 경우 딱히 에러가 생기지않는다. 하지만 이걸 Java로 작성하게 된다면???? 
+
+/* for (var i = 0; i < 5; i++) {
+	String name = "egoing";
+}
+System.out.println(name); */
+//Java 코드의 경우 name값을 찾을수없어 에러가 뜬다
+
+
+//정적 유효범위 -----------------------------------------------------------------------------------------------
+//자바스크립트는 함수가 선언된 시점에서의 유효범위를 갖는다. 이러한 유효범위의 방식을 정적유효범위(static scoping) 혹은 렉시컬 이라고한다
+
+var i = 5;		//전역변수
+
+function a() {
+	var i = 10;	//지역변수
+	b();
+}
+
+function b() {	//메소드가 정의되는 시점에서의 값을 부여함
+	document.write(i);
+}
+
+a();	//5 : 전역변수가 호출된다. 함수b가 선언된 시점에서 i가 사용됨
+		//사용될때가 아니고,   정의될때의 값을 사용한다. == 정적 유효범위
+		//반대로 사용될때(호출될때)마다 값을 받아서 사용하는것 == 동적
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

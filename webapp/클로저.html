@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//클로저 : 내부함수가 외부함수의 맥락에 접근할수있는것을 가르킨다. == 내부함수가 외부함수의 지역변수를 사용할수있다
+
+
+//내부함수 : 자바스크립트는 함수안에 또 다른함수를 선언할수있다
+//내부함수에서 외부함수의 지역변수에 접근할수있다 ==> 클로저
+function outter() {	// 외부함수
+	var title = 'coding everybody';	//외부함수에 정의된 지역변수
+	function inner() {	// 내부함수
+		alert(title);	//외부함수의 지역변수 title에 접근할수있다(클로저)
+	}
+	inner();
+}
+outter();
+
+
+//----------------------------------------------------------------------
+function outters() {
+	var text = 'coding everybody';
+	return function() {	//내부함수를 리턴
+		alert(text);
+	}
+}
+var inner = outters();
+inner();
+
+// ▼▼▼▼▼▼
+function factory_movie(title){
+    return {
+        get_title : function (){	//get_title : 메소드이면서, factory_movie에 대한 내부함수이다
+            return title;
+        },
+        set_title : function(_title){
+            title = _title
+        }
+    }
+}
+ghost = factory_movie('Ghost in the shell');
+matrix = factory_movie('Matrix');
+ 
+alert(ghost.get_title());
+alert(matrix.get_title());
+ 
+ghost.set_title('공각기동대');
+ 
+alert(ghost.get_title());
+alert(matrix.get_title());
+
+//--------------------------------------------------------------------------------
+var arr = []
+for(var i = 0; i < 5; i++){
+    arr[i] = function(){
+        return i;
+    }
+}
+for(var index in arr) {	//foreach와 비슷함
+    console.log(arr[index]());
+}
+
+//
+var arr = []
+for(var i = 0; i < 5; i++){
+    arr[i] = function(id) {
+        return function(){
+            return id;	//내부함수는 외부함수의 지역변수를 사용할수있다!! (이부분이 중요할듯)
+        }
+    }(i);	//함수를 그 자리에서 바로 실행
+}
+for(var index in arr) {
+    console.log(arr[index]());
+}
+
+/* 결과
+0
+1
+2
+3
+4
+*/
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

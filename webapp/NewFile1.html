@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	
+	
+	ul{
+		padding: 0px;
+	
+	}
+	
+	li{
+		list-style: none;
+	}
+
+	a{
+		text-decoration: none;
+		
+	
+	}
+	
+	#menu{
+		margin:10px auto;
+		display:table;
+	    overflow:hidden; 
+	}
+	
+	 #menu>li{
+		float:left;
+		
+	}
+	
+	#menu>li>a{
+		display:block;
+		padding: 10px 40px;
+		background-color: black;
+		color:orange;
+		
+	}
+	
+	.subMenu>li>a:hover{
+		color: white;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	
+	
+	/*
+
+	
+#menu li a:hover{
+		background-color: orange;
+		color:white;
+	} 
+	
+	.subMenu{
+	 display:none;
+	 background-color: black;
+	 text-align: center;
+
+	}
+	
+	
+	#menu li a:hover+.subMenu{
+		display:block;
+	}
+
+	
+	
+	
+	
+	#menu li a:hover+.subMenu li a{
+		color: orange;
+				
+	}
+	
+	
+	
+	.subMenu:hover{
+		display:block;
+	}
+	
+	.subMenu li{
+		padding:10px 0px;
+	
+	}
+	
+	.subMenu a{
+		color:orange;
+	
+	}
+	
+	.subMenu li:hover{
+		background-color: orange;
+	
+	}
+	
+	
+	*/
+	
+	
+</style>	
+</head>
+<body>
+	<ul id="menu">
+		<li><a href="#">홈</a></li>
+		
+		<li><a href="#">시설안내</a> 
+			<ul class="subMenu">
+				<li><a href="#">메뉴1</a></li>
+				<li><a href="#">메뉴2</a></li>
+			</ul>	
+		</li>
+		
+		<li><a href="#">스터디존</a>
+			<ul class="subMenu">
+				<li><a href="#">오픈 공간</a></li>
+				<li><a href="#">파티션</a></li>
+				<li><a href="#">업앤타운</a></li>
+				<li><a href="#">카페존</a></li>
+				<li><a href="#">스터디룸</a></li>
+			</ul>
+		</li>
+
+		<li><a href="#">수험생</a>
+			<ul class="subMenu">
+				<li><a href="#">수험 가이드</a></li>
+				<li><a href="#">합격 후기</a></li>
+			</ul>
+		</li>
+		
+		<li><a href="#">고등학생</a>
+			<ul class="subMenu">
+				<li><a href="#">수시 준비</a></li>
+				<li><a href="#">수능 준비</a></li>
+			</ul>
+		</li>
+		
+		<li><a href="#">증학생</a>
+			<ul class="subMenu">
+				<li><a href="#">학습기관</a></li>
+				<li><a href="#">기초단련</a></li>
+			</ul>
+		</li>
+		
+		<li><a href="#">문의/신청</a>
+			<ul class="subMenu">
+				<li><a href="#">상담신청</a></li>
+				<li><a href="#">시설예약</a></li>
+			</ul>
+		</li>
+		
+		
+		<li><a href="#">로그인</a></li>
+		<li><a href="#">회원가입</a></li>
+		
+	</ul>
+	
+</body>
+</html>

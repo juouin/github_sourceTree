@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function sum_number(a,b) {
+	return a+b;
+}
+
+</script>
+</head>
+<body>
+
+<input type="button" onclick="alert('안녕하세요')" value="123" >
+
+<script type="text/javascript">
+
+/* 
+
+id = prompt('아이디를 입력해주세요');		//id에 변수 타입 선언을 하지 않았는데, 문제없이 작동하는 부분
+if (id == 'oh hi') {
+	alert("yes");
+}else {
+	alert("no");
+}
+
+*/
+
+
+/* var sum =  sum_number(10, 11);
+alert(sum); */
+
+
+//splice : (index, howmany, element)
+//index : 배열에추가할 특정배열의 위치를 가르키는인덱스
+//howmany : index에서부터 제거될 원소들의 수.  index부터 index+howmany에 해당하는 원소들은 삭제된다. (0이면 아무것도 삭제되지않음)
+//elemnet : index와 index+howmany 사이에 추가될값(여러개가 와도 상관없음)  arr.splice(1, 3, 'z', 'x', 'y');
+var arr = ['a','b','c','d'];
+arr.splice(1, 3, 'z', 'x', 'y');
+
+
+//shift() : 배열의 첫번째 원소를 제거한다
+//pop() : 배열의 마지막 원소를 제거한다
+//sort() : 배열을 정렬한다(오름차순) -> 아스키코드르 기준으로 하여 완전하지는 않다
+arr.sort(function (a,b){return a-b;});
+alert(arr);
+</script>
+
+</body>
+</html>

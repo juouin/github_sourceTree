@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상속</title>
+<script type="text/javascript">
+/* 
+객체란 어떠한 컨테이너이고, 그 객체안에는 변수,메소드가 하나의 객체안에 이루어져있다.
+그 객체를 물려받아서 새로운 객체를 만들수있다. 
+부모객체의 기능을 물려받아 또다른 객체를 만들수있는기능을 상속이라한다.
+*/
+
+//자바스크립트에서 상속은 어떻게 구현하는가? : class가 없어서 생각보다 작업이 귀찮다
+
+function Person(name){	//생성자 : 객체지향프로그래밍에서 객체의 초기화를 담당하는 서브루틴
+    this.name = name;
+}
+Person.prototype.name = null;
+Person.prototype.introduce = function(){
+    return 'My name is '+this.name;
+}
+
+function Programmer(name){
+    this.name = name;
+}
+Programmer.prototype = new Person();
+Programmer.prototype.coding = function(){	//Person에는 없는 coding이라는 기능을 가진다
+    return "hello world";
+}
+
+ 
+var p1 = new Programmer('egoing');
+document.write(p1.introduce()+"<br />");
+//introduce()라는 메소드를 정의하지 않았는데 출력이 나온다? Programmer가 introduce를 상속받았기때문
+
+		
+/* 
+prototype : 번역하면 원형이라는 의미인데, 말그대로 객체의 원형이라고 한다. 
+*/		
+		
+function Ultra(){}	//Super의 부모
+Ultra.prototype.ultraProp = true;
+ 
+function Super(){}	//Sub의 부모
+Super.prototype = new Ultra();	//Ultra에서 만들었던 객체가(prototype)이 리턴된다
+ 
+function Sub(){}
+Sub.prototype = new Super();		//함수앞에 new를 써주면 그 함수는 단순한 함수가 아니라 생성자함수가 된다
+ 									//실행하게되면 새로운 객체를 만들어서 그 객체를 리턴
+var o = new Sub();	//Sub는 ultraProp라는 값을 가지고 있지않다
+o.ultraProp = 1;	//
+console.log(o.ultraProp);	//우선 o라는곳에 ultraProp가 있는지 확인한다. 
+							//-> o의 생성자를 찾고 생성자가 있다면 그 생성자의 prototype을 확인하여 값이 있다면 그걸 리턴함 
+
+/* 
+객체 o에서 ultraProp를 찾는다.
+없다면 Sub.prototype.ultraProp를 찾는다.
+없다면 Super.prototype.ultraProp를 찾는다.
+없다면 Ultra.prototype.ultraProp를 찾는다.
+*/							
+							
+
+		
+</script>
+</head>
+<body>
+
+</body>
+</html>

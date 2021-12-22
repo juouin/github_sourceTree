@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수의용도</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js">
+// 값(value)으로서의 함수와 콜백 : 변수에 담을수있는 값으로서 존재
+// function a() {}   ==    var a = function() {}	자바스크립트에서는 같은의미
+// 함수가 value로써 존재할수있다면, 함수는 객체로서도 존재할수있다.
+/* 
+
+		a = {
+			b:function(){}
+		};
+
+	a라는 객체에 b라는 속성(변수,property)이 담겨있고, 그 속성의 값은 함수(여기서는 메소드라 부른다)
+	메소드 : 객체안에 정의되어있는 함수
+*/
+
+
+//함수는 값! 이기때문에 다른함수의 인자로 전달될수있다.
+function cal(func, num) {
+	return func(num);	//받은 함수를 호출
+}
+
+function increase(num) {
+	return num+1;
+}
+
+function decrease(num) {
+	return num-1;
+}
+
+alert(  cal(increase,1)  );
+alert(  cal(decrease,1)  );
+
+//함수는 함수의 리턴값으로도 사용할수있다
+function cal(mode){
+    var funcs = {
+        'plus' : function(left, right){return left + right},
+        'minus' : function(left, right){return left - right}
+    }
+    return funcs[mode];
+}
+alert(cal('plus')(2,1));	//cal('plus')가 호출되면 funcs객체에서 plus라는 키의값인 함수가 호출이된다. 호출된함수(2,1)로 매개변수를 전달
+alert(cal('minus')(2,1));
+
+//배열으로서 함수사용(배열은 값을 저장할수있으므로 '값'인 함수는 배열에서도 사용할수있다)
+var process = [
+    function(input){ return input + 10;},
+    function(input){ return input * input;},
+    function(input){ return input / 2;}
+];
+var input = 1;
+for(var i = 0; i < process.length; i++){
+    input = process[i](input);
+}
+alert(input);	//60.5
+
+
+//콜백 : 어떠한 함수가 수신하는 인자  -------------------------------------------------------------------
+
+function sortNumber(a,b){
+    // 위의 예제와 비교해서 a와 b의 순서를 바꾸면 정렬순서가 반대가 된다.
+    return b-a;
+}
+var numbers = [20, 10, 9,8,7,6,5,4,3,2,1];
+alert(numbers.sort(sortNumber)); // array, [20,10,9,8,7,6,5,4,3,2,1]
+
+//sort(sortfunc) : sort는 sortfunc라는 인자를 매개변수로 받는데, 데이터형은 '함수'이고, 필수는아니고 옵션으로 사용하는인자이다. 
+ 				  //주로 원소들간에 무엇이 우선인지를 판단하는 용도로 쓰인다
+				  //이러한 함수를 콜백함수라고 한다. 호출하는메소드(sort)를 내부적으로 변경시켜주는역할? (함수가 인자역할(값)을 할수있을때 가능)
+
+/* 
+콜백함수(구글링) : 이름그대로 나중에 호출되는 함수를 의미한다. 딱히 특별한 선언이나 문법적 특징을 가지고있지는않다. 그냥 일반적인 자바스크립트 함수일뿐
+	요약하자면 어떤 이벤트가 발생했거나 특정 시점에 도달했을때 시스템에서 호출하는 함수를 말한다.	
+*/
+//비동기 콜백과 Ajax-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	$.get('./datasource.json.js', function(result){
+	    console.log(result);
+	}, 'json');
+</script>
+
+
+</body>
+</html>

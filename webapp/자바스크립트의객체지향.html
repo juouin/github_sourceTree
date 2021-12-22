@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트의 객체지향</title>
+<script type="text/javascript">
+
+/* 
+자바스크립트의 객체지향이라는것은 일반적인 객체지향과는 다르다
+Prototype-Based-Programming
+
+객체 : 서로연관되어있는 변수와 메소드를 하나의 객체라고하는 그릇에 담는다. (그룹핑)
+연관되지않은 변수와 메소드는 별도의 객체에 담는다. 
+
+각각의 로직(독립성을가진 부품)
+
+*/
+var person = {};	//객체
+person.name = 'egoing';
+person.introduce = function () {	//property(변수,key)에 담겨있는 함수를 메소드라 부른다
+	return 'My name is ' + this.name;	//this : 이 함수가 속해있는 객체를 가리킨다. == person
+}
+document.write(person.introduce());
+
+
+// 생성자 : 객체를 만드는 역할을 하는 함수. 
+function Person(){}	//평범한 함수
+var p = new Person();	//이때 p를 출력해보면 Person{} 즉 객체가 생성되었다(비어있는 객체를 만들고 그것을 반환)
+p.name = 'egoing';
+p.introduce = function(){
+    return 'My name is '+this.name; 
+}
+document.write(p.introduce());
+
+
+//개선점 없는 코드
+function Person(){}
+var p1 = new Person();
+p1.name = 'egoing';
+p1.introduce = function(){
+    return 'My name is '+this.name; 
+}
+document.write(p1.introduce()+"<br />");
+ 
+var p2 = new Person();
+p2.name = 'leezche';
+p2.introduce = function(){
+    return 'My name is '+this.name; 
+}
+document.write(p2.introduce());
+
+//개선된 코드: 코드의 재사용성이 높아졌다
+function Person(name){
+	//1. this = {};   빈 객체가 암시적으로 만들어짐
+	
+	//2. 새로운 프러퍼티를 this에 추가함
+    this.name = name;
+    this.introduce = function(){
+        return 'My name is '+this.name; 
+    } 
+    
+    //3. return this;   this가 암시적으로 반환됨
+}
+var p1 = new Person('egoing');
+document.write(p1.introduce()+"<br />");	//My name is egoing
+ 
+var p2 = new Person('leezche');
+document.write(p2.introduce());	//My name is leezche
+
+/*
+new person(...)을 써서 함수를 실행하면 다음과 같이 동작한다
+
+1. 빈 객체를 만들어 this에 할당한다
+2. 함수 본문을 실행한다. this에 새로운 프로퍼티를 추가해 this를 수정한다
+3. this를 반환한다
+*/
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
