@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+	*{
+		box-sizing: border-box;
+	}
+	
+	
+	a{
+		text-decoration: none;
+		color:black;
+	}
+
+	li{
+		list-style: none;
+	}
+	
+	#header{
+		width:1000px;
+		background-color: black;
+		margin:0px auto;
+	}
+
+	
+
+	.menu ul{
+		display:table;
+		margin:0px auto;
+		padding:0px;
+		
+	}
+
+	.menu ul li{
+		float:left;
+	
+	}
+
+	.menu ul li a{
+		color:white;
+		padding: 10px 25px;
+		display:block;
+	}
+
+/* ----------------------------------------------------------menu */
+
+	.logo{
+		width:200px;
+		border:1px solid red;
+		padding:10px 30px;
+		text-align: center;
+		margin:50px auto;
+		
+	}
+	
+/*-------------------------------------------------------------- logo */
+
+	.hit_menu{
+		overflow:hidden;
+		border-bottom:1px dashed red;
+	}
+	
+	.hit_menu ul{
+		padding:0px;
+		display:table;
+		overflow:hidden;
+		float:right;
+	}
+	
+	.hit_menu ul li{
+		float:right;
+		
+	
+	}
+
+	.hit_menu ul li a {
+		padding: 10px 20px;
+		display:block;
+		border:1px solid red;
+	}
+
+
+	.hit_menu ul li:nth-child(1) a {
+		border-radius: 0px 15px 15px 0px;
+	}	
+
+	.hit_menu ul li:nth-child(2) a {
+		border-left: 0px;
+		border-right: 0px;
+		/* float:right 를 먹였기 때문에 순서가 반대로 되어있다 주의 */
+	}	
+	
+	.hit_menu ul li:nth-child(3) a {
+		border-left: 0px;
+	}	
+	
+	.hit_menu ul li:nth-child(4) a {
+		border-radius: 15px 0px 0px 15px;
+	}	
+
+/* -------------------------------------------hit_menu */
+
+
+	.lnb_menu{
+		border-bottom:1px solid red;
+		overflow:hidden;
+		margin: 0px auto;
+		width: 1000px;
+	
+	}
+
+	.lnb_menu>ul{
+		display:table;
+		padding:0px;
+		overflow:hidden;
+	}
+	
+	.lnb_menu>ul>li{
+		float:left;
+		margin:0px auto;
+	
+	}
+
+	.lnb_menu>ul>li>a{
+		padding: 0px 20px;
+		display:block;
+		
+	}
+
+	.lnb_menu ul li:nth-child(2n) {
+	 color:red;
+	}
+
+/* -------------------------------------------------lnb/header */
+
+	
+
+
+</style>
+</head>
+<body>
+
+	<div id="header">
+		<div class="menu">
+			<ul>
+				<li><a href="#">Login</a></li>		
+				<li><a href="#">Join Us</a></li>		
+				<li><a href="#">Wish List</a></li>		
+				<li><a href="#">Cart</a></li>		
+				<li><a href="#">Order</a></li>		
+				<li><a href="#">Mypage</a></li>		
+				<li><a href="#">Notice</a></li>		
+				<li><a href="#">QnA</a></li>		
+				<li><a href="#">Review</a></li>		
+				<li><a href="#">Favorite</a></li>		
+			</ul>
+		</div>	
+	</div>
+
+	
+	
+	<div class="logo">logo</div>
+
+	
+	
+	<div class="hit_menu">
+		<ul>
+			<li><a href="#">hit_menu4</a></li>		
+			<li><a href="#">hit_menu3</a></li>		
+			<li><a href="#">hit_menu2</a></li>		
+			<li><a href="#">hit_menu1</a></li>		
+		</ul>
+	</div>
+
+
+	<div class="lnb_menu">
+		<ul>
+			<li><a href=#>lnb_menu1</a>	
+			<li>|</li>	
+			<li><a href=#>lnb_menu2</a>		
+			<li>|</li>	
+			<li><a href=#>lnb_menu3</a>		
+			<li>|</li>	
+			<li><a href=#>lnb_menu4</a>		
+			<li>|</li>	
+			<li><a href=#>lnb_menu5</a>		
+			<li>|</li>	
+			<li><a href=#>lnb_menu6</a>		
+			<li>|</li>	
+			<li><a href=#>lnb_menu7</a>		
+			<li>|</li>	
+			<li><a href=#>lnb_menu8</a>		
+		</ul>
+	</div>
+
+
+
+	<div id="content">
+		<div class="section01">
+			<div class="left_banner">left banner</div>		
+			<div class="left_banner">right banner</div>		
+		</div>
+	</div>
+
+
+		<div class="section02">
+			<div class="hit_product">
+				<ul>
+					<li><a href="#">hit_product1</a>
+					<li><a href="#">hit_product2</a>
+					<li><a href="#">hit_product3</a>
+					<li><a href="#">hit_product4</a>
+				</ul>
+			</div>
+			
+			
+			<div class="md_product">
+				<ul>
+					<li><a href="#">md_product1</a>				
+					<li><a href="#">md_product2</a>				
+					<li><a href="#">md_product3</a>				
+					<li><a href="#">md_product4</a>				
+				</ul>
+			</div>
+		</div>	
+
+	
+	
+	
+	<div id="footer">
+		<div class="office_logo">office_logo</div>
+		<div class="office_address">office_logo</div>
+		<div class="shopping_info">shopping_info</div>
+		
+		<div class="copyright">copyright</div>
+	</div>
+</body>
+</html>
